@@ -1,8 +1,10 @@
-package cn.example.sunnyweather
+package cn.example.sunnyWeather
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import cn.example.sunnyweather.databinding.ActivityMainBinding
+
+// TODO App's main program
 
 class MainActivity : AppCompatActivity() {
 
