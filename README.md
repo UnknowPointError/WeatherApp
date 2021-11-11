@@ -1,17 +1,17 @@
 # WeatherApp
 Android《The first line of code (Third edition) 》---> Guo Lin (Weather Project)
 
-Language: Kotlin ---> Version: 1.6.0
+Language：Kotlin ---> Version: 1.6.0
 
-MinSdk:21
+MinSdk：21
 
-TargetSdk:31
+TargetSdk：31
 
-TargetAPI:https://open.caiyunapp.com/%E5%BD%A9%E4%BA%91%E5%A4%A9%E6%B0%94_API_%E4%B8%80%E8%A7%88%E8%A1%A8
+TargetAPI：https://open.caiyunapp.com/%E5%BD%A9%E4%BA%91%E5%A4%A9%E6%B0%94_API_%E4%B8%80%E8%A7%88%E8%A1%A8
 
-BuildPlugins:ViewBinding
+BuildPlugins：ViewBinding
 
-Project Structure: MVVM
+Project Structure：MVVM
 
 
 
