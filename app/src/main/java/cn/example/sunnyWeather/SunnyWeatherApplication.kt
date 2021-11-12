@@ -13,6 +13,7 @@ import android.content.Context
  **************************/
 
 // TODO TOKEN is the token value applied by CaiYun Weather API
+//  TOKEN是彩云天气API应用的令牌值
 
 class SunnyWeatherApplication : Application() {
 

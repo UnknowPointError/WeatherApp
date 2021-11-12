@@ -4,7 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import cn.example.sunnyweather.databinding.ActivityMainBinding
 
-// TODO App's main program
+// TODO MAIN: App's main Activity APP的主活动
 
 class MainActivity : AppCompatActivity() {
 
