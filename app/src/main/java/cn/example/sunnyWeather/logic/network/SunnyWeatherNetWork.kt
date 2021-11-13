@@ -33,7 +33,7 @@ object SunnyWeatherNetWork {
                  * Invoked for a received HTTP response.
                  *
                  *
-                 * Note: An HTTP response may still indicate an application-level failure such as a 404 or 500.
+                 * kkkNote: An HTTP response may still indicate an application-level failure such as a 404 or 500.
                  * Call [Response.isSuccessful] to determine if the response indicates success.
                  */
                 override fun onResponse(call: Call<T>, response: Response<T>) {

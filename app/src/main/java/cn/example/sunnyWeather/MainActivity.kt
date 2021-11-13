@@ -2,7 +2,7 @@ package cn.example.sunnyWeather
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import cn.example.sunnyweather.databinding.ActivityMainBinding
+import cn.example.sunnyWeather.databinding.ActivityMainBinding
 
 // TODO MAIN: App's main Activity APP的主活动
 
