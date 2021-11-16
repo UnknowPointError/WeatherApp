@@ -1,4 +1,4 @@
-package cn.example.sunnyWeather
+package cn.example.sunnyweather
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4
