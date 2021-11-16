@@ -1,5 +1,6 @@
 package cn.example.sunnyWeather.ui.place
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -12,8 +13,10 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.observe
 import androidx.recyclerview.widget.LinearLayoutManager
+import cn.example.sunnyWeather.MainActivity
 import cn.example.sunnyWeather.R
 import cn.example.sunnyWeather.databinding.FragmentPlaceBinding
+import cn.example.sunnyWeather.ui.weather.WeatherActivity
 
 /*************************
  * @ProjectName: SunnyWeather
@@ -24,7 +27,7 @@ import cn.example.sunnyWeather.databinding.FragmentPlaceBinding
  **************************/
 class PlaceFragment : Fragment() {
 
-    private val viewModel by lazy { ViewModelProvider(this).get(PlaceViewModel::class.java) }
+    val viewModel by lazy { ViewModelProvider(this).get(PlaceViewModel::class.java) }
     private lateinit var mBinding: FragmentPlaceBinding
     private lateinit var adapter: PlaceAdapter
 
@@ -39,6 +42,17 @@ class PlaceFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        if (activity is MainActivity && viewModel.isPlaceSaved()) {
+            val place = viewModel.getSavedPlace()
+            val intent = Intent(context, WeatherActivity::class.java).apply {
+                putExtra("location_lng", place.location.lng)
+                putExtra("location_lat", place.location.lat)
+                putExtra("place_name", place.name)
+            }
+            startActivity(intent)
+            activity?.finish()
+            return
+        }
         val layoutManager = LinearLayoutManager(activity)
         mBinding.apply {
             recyclerView.layoutManager = layoutManager
@@ -69,5 +83,6 @@ class PlaceFragment : Fragment() {
             })
         }
     }
+
 }
 

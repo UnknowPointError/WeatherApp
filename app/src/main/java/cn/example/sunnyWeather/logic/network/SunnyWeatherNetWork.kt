@@ -12,6 +12,8 @@ import kotlin.coroutines.suspendCoroutine
 
 object SunnyWeatherNetWork {
 
+    private val weatherService = ServiceCreator.create(WeatherService::class.java)
+
     // 1. Create a dynamic processing object for the placeService interface
     // 1. 为placeService接口创建动态处理对象
     private val placeService = ServiceCreator.create<PlaceService>()
@@ -28,14 +30,6 @@ object SunnyWeatherNetWork {
     private suspend fun <T> Call<T>.await(): T {
         return suspendCoroutine { continuation ->
             enqueue(object : Callback<T> {
-
-                /**
-                 * Invoked for a received HTTP response.
-                 *
-                 *
-                 * kkkNote: An HTTP response may still indicate an application-level failure such as a 404 or 500.
-                 * Call [Response.isSuccessful] to determine if the response indicates success.
-                 */
                 override fun onResponse(call: Call<T>, response: Response<T>) {
                     val body = response.body()
                     val runTimeException = RuntimeException("response body is null")
@@ -43,15 +37,17 @@ object SunnyWeatherNetWork {
                     else continuation.resumeWithException(runTimeException)
                 }
 
-                /**
-                 * Invoked when a network exception occurred talking to the server or when an unexpected exception
-                 * occurred creating the request or processing the response.
-                 */
                 override fun onFailure(call: Call<T>, t: Throwable) {
                     continuation.resumeWithException(t)
                 }
             })
         }
     }
+
+    suspend fun getDailyWeather(lng: String, lat: String) =
+        weatherService.getDailyWeather(lng = lng, lat = lat).await()
+
+    suspend fun getRealtimeWeather(lng: String, lat: String) =
+        weatherService.getRealtimeWeather(lng = lng, lat = lat).await()
 
 }
